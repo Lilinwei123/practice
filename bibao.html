@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript">
+		let res = 
+		{"data":
+			{"total_lwpq_lwry":36,"total_lwwbry":18,"data":[
+				{"total":"合计","sum_lwwbry":18,"sum_zsyg_txfp":38,"sum_row":3,"sum_lwpq_lwry":36,"plate_sun":[{"org_plate_id":"1001AA100000000003ZF","sub":"小计","sum_lwwbry":18,"sum_zsyg_txfp":38,"sum_row":2,"sum_lwpq_lwry":36,"org_plate_name":"-","org_sun_item":[{"org_name":"集团本部","pk_org":"0001CC10000000001L63","lwpq_lwry":36,"zsyg_txfp":38,"lwwbry":18}]}],"plate_id":"1001AA100000000003ZF","plate_name":"集团"},{"total":"合计","sum_lwwbry":0,"sum_zsyg_txfp":3,"sum_row":3,"sum_lwpq_lwry":0,"plate_sun":[{"org_plate_id":"1001AA100000000003ZH","sub":"小计","sum_lwwbry":0,"sum_zsyg_txfp":3,"sum_row":2,"sum_lwpq_lwry":0,"org_plate_name":"-","org_sun_item":[{"org_name":"股份本部","pk_org":"0001CC10000000001L6R","lwpq_lwry":0,"zsyg_txfp":3,"lwwbry":0}]}],"plate_id":"1001AA100000000003ZH","plate_name":"股份"}],"total_name":"总计","total_zsyg_txfp":41},"statusCode":200,"devInfo":{}};
+		
+		let array = []
+		res.data.data.forEach(data0 => {
+			data0.plate_sun.forEach(data1 => {
+				data1.org_sun_item.forEach(data2 => {
+					let array2 = []
+					array2.push(data0.plate_name)
+					array2.push(data1.org_plate_name)
+					array2.push(data2.org_name)
+					array2.push(data2.zsyg_txfp)
+					array2.push(data2.lwpq_lwry)
+					array2.push(data2.lwwbry)
+					console.log(array2)
+					array.push(array2)
+				})
+				let array1 = []
+				array1.push(data0.plate_name)
+				array1.push(data1.org_plate_name)
+				array1.push(data1.sub)
+				array1.push(data1.sum_zsyg_txfp)
+				array1.push(data1.sum_lwpq_lwry)
+				array1.push(data1.sum_lwwbry)
+				console.log(array1)
+				array.push(array1)
+			})
+			let array0 = []
+			array0.push(data0.plate_name)
+			array0.push(data0.total)
+			array0.push(``)
+			array0.push(data0.sum_zsyg_txfp)
+			array0.push(data0.sum_lwpq_lwry)
+			array0.push(data0.sum_lwwbry)
+			console.log(array0)
+			array.push(array0)
+		});
+
+	let arraySum = []
+	arraySum.push(res.data.total_name)
+	arraySum.push(``)
+	arraySum.push(``)
+	arraySum.push(res.data.total_zsyg_txfp)
+	arraySum.push(res.data.total_lwpq_lwry)
+	arraySum.push(res.data.total_lwwbry)
+	console.log(arraySum)
+	array.push(arraySum)
+
+	console.log(array)
+
+
+	</script>
+</head>
+
+<body>
+	
+</body>
+</html>

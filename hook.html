@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript">
+		function student (name, score, praise) {
+			return {
+				name: name,
+				score: score,
+				praise: praise
+			}
+		}
+
+		// function praiseAdd(students) {
+		// 	let result = {};
+		// 	for (let i in students) {
+		// 		let curStudent = students[i];
+		// 		let curScore = students[i].score;
+
+		// 		if (students[i].praise === 1) {
+		// 			curScore += 20;
+		// 		} else if (students[i].praise === 2) {
+		// 			curScore += 10;
+		// 		} else if (students[i].praise === 3) {
+		// 			curScore += 5;
+		// 		}
+		// 		result[curStudent.name] = curScore;
+		// 	}
+
+		// 	return result;
+		// }
+		
+		let praiseList = {
+			1: 20,
+			2: 10,
+			3: 5
+		}
+
+		function praiseAdd(students) {
+			var results = {};
+
+			for (var i in students) {
+				var curStudent = students[i];
+				var curScore = curStudent.score;
+				if (praiseList[curStudent.praise]) {
+					curScore += praiseList[curStudent.praise]
+				}
+			}
+		}
+
+		let liming = student("liming", 70, 1);
+		let liyi = student("liyi", 90, 2);
+		let liuwei = student("liuwei", 80, 3);
+		let ertuzi = student("ertuzi", 85, 3);
+
+		let result = praiseAdd([liming, liyi, liuwei, ertuzi]);
+		console.log(result);
+		console.log(Object.keys(result));
+		Object.keys(result).forEach((item, index, arr) => {
+			console.log(`item: ${result[item]}; index: ${index}; arr: ${arr}`);
+		});
+	</script>
+</head>
+
+<body>
+	
+</body>
+</html>

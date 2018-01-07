@@ -1,0 +1,496 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+<body> -->
+	<!-- <div class="main">
+		<div class="left"></div>
+		<div class="right"></div>
+	</div>
+
+	<style type="text/css">
+	.main{
+		position: relative;
+	}
+	.left{
+		position: absolute;
+		left: 0px;
+		width: 200px;
+	}
+	.right{
+		margin-left: 200px;
+	}
+	nav {
+		float: left;
+		width: 200px;
+	}
+	section {
+		margin-left: 200px;
+	}
+</style> -->
+
+<!-- <script type="text/javascript">
+define(function () {
+	var add = function(x, y){
+		return x+y;
+	};
+
+	return {
+		add: add
+	};
+});
+
+require(['math'], function(){
+	alert(math.add(x, y));
+});
+
+define(['myLib'], function(myLib){
+	function foo(){
+		myLib.dosomething();
+	}
+	return {
+		foo: foo
+	}
+});
+</script>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html> 
+<html lang="zh-cn"> 
+<head> 
+<meta charset="utf-8"/> 
+<title>CSS Test Page</title> 
+<style type="text/css"> 
+*{ 
+margin: 0; 
+padding: 0; 
+} 
+.cent{ 
+background:#0CF; height:200px; width:100px; 
+} 
+.cs{ 
+width:100px; 
+height:200px; 
+background:#F09; 
+top:0px; 
+position:absolute; 
+opacity: 0; 
+display: block; 
+font-size: 12px; 
+transition: 0.3s; 
+-webkit-transition: .5s; 
+-moz-transition: .5s; 
+} 
+.cent:hover .cs{ 
+color: #656e73; 
+opacity: 1; 
+} 
+</style> 
+
+</head> 
+<body> 
+
+<div class="cent"> 
+This is the cent div 
+<div class="cs"> 
+<p>this is a cs div</p> 
+</div> 
+</div> 
+
+</body> 
+</html> -->
+
+
+<!-- <!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>div大小</title>  
+
+</head>
+  
+<body>   
+     <script type="text/javascript">
+     var res = 5;
+     console.log(Math.ceil(res/3));
+     </script>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Document</title>
+    <style type="text/css">
+        p{
+            width: 250px;
+            height: 30px;
+            line-height: 30px;
+            color: #000;
+            font-size: 14px;
+        }
+        p >a {
+            display: block;
+            width: 100%;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        p >a:hover{
+            display: block;
+            width: 100%;
+            overflow: auto;
+            white-space: normal;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <a href="#">测试的文字测试的文字测试的文字测试的文字测试的文字测试的文字测试的文字测试的文字测试的文字测试的文字测试的文字测试的文字</a>
+    </p>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">  
+<html>  
+ <head>  
+  <title> demo </title>  
+  <style type="text/css">  
+  body{margin:0px;}  
+    .main{position:relative;}  
+    #f1{position:absolute; background:#FF0000; top:100px; left:100px; width:200px; height:200px; z-index:999}  
+    #f2{position:absolute; background:#FFFF00; top:0px; left:0px; width:600px; height:150px;}  
+  </style>  
+ </head>  
+ <body>  
+ <div class="main">  
+    <div id="f1"></div>  
+    <div id="f2"></div>  
+ </div>  
+ <script type="text/javascript">  
+    var o = document.getElementById("f1");  
+    var d = document.getElementById("f2");  
+    alert(impact(o, d)); 
+    function impact(obj, dobj) {  
+        var o = {  
+            x: getDefaultStyle(obj, 'left'),  
+            y: getDefaultStyle(obj, 'top'),  
+            w: getDefaultStyle(obj, 'width'),  
+            h: getDefaultStyle(obj, 'height')  
+        } 
+        var d = {  
+            x: getDefaultStyle(dobj, 'left'),  
+            y: getDefaultStyle(dobj, 'top'),  
+            w: getDefaultStyle(dobj, 'width'),  
+            h: getDefaultStyle(dobj, 'height')  
+        } 
+        var px, py; 
+        px = o.x <= d.x ? d.x : o.x;  
+        py = o.y <= d.y ? d.y : o.y;  
+  
+        // 判断点是否都在两个对象中  
+        if (px >= o.x && px <= o.x + o.w && py >= o.y && py <= o.y + o.h && px >= d.x && px <= d.x + d.w && py >= d.y && py <= d.y + d.h) {  
+            return true;  
+        } else {  
+            return false;  
+        }  
+    } 
+    function getDefaultStyle(obj, attribute) {  
+        return parseInt(obj.currentStyle ? obj.currentStyle[attribute] : document.defaultView.getComputedStyle(obj, false)[attribute]);  
+    }  
+ </script>  
+ </body>  
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+ 	<meta charset="UTF-8">
+ 	<title>碰撞检测</title>
+ 	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	#divA,#divB{
+		width: 200px;
+		height: 200px;
+		background-color: purple;
+		font-size: 50px;
+		line-height: 200px;
+		text-align: center;
+		position: absolute;
+		color: #fff;
+	}
+	#divA{
+		left: 30px;
+		top: 30px;
+		z-index: 5;
+	}
+	#divB{
+		left: 300px;
+		top: 300px;
+	}
+ 	</style>
+</head>
+<body>
+	<div id="divA">A</div>
+	<div id="divB">B</div>
+</body>
+<script type="text/javascript">
+	var divA = document.getElementById("divA");
+	var divB = document.getElementById("divB");
+  
+ 	divA.onmousedown = function (e) {
+		var event1 = window.event || e;
+		var startX = event1.clientX;
+		var startY = event1.clientY;
+
+		document.onmousemove = function (j) {
+			var event2 = window.event || j;
+			var endX = event2.clientX;
+			var endY = event2.clientY;
+
+			divA.style.left = divA.offsetLeft + (endX - startX) + "px";
+			divA.style.top = divA.offsetTop + (endY - startY) + "px";
+
+			startX = endX;
+			startY = endY;
+
+			if (isCrash(divA,divB) == true) {
+				divA.style.backgroundColor = "red";
+			} else{
+				divA.style.backgroundColor = "purple";
+			};
+		}
+	}
+
+	divA.onmouseup = function () {
+		document.onmousemove = null;
+	}
+
+	function isCrash (obj1,obj2) {
+		var boolCrash = true;
+		var left1 = obj1.offsetLeft;
+		var right1 = obj1.offsetLeft + obj1.offsetWidth;
+		var top1 = obj1.offsetTop;
+		var bottom1 = obj1.offsetTop + obj1.offsetHeight;
+		var left2 = obj2.offsetLeft;
+		var right2 = obj2.offsetLeft + obj2.offsetWidth;
+		var top2 = obj2.offsetTop;
+		var bottom2 = obj2.offsetTop + obj2.offsetHeight;
+
+		if (right1>left2 && left1<right2 && bottom1>top2 && top1<bottom2){
+			boolCrash = true;
+		}else{
+			boolCrash = false;
+		}
+		return boolCrash;
+	}
+</script>
+</html> -->
+
+<!-- <!DOCTYPE html>  
+<html>  
+<head>  
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js'></script>  
+</head>  
+<body>  
+<li>  
+         <div class='am-g'>  
+          <div styel="width:100px; height:100px">  
+           
+          </div>  
+          <div>  
+          <input type="file" name="imgUpload" id="imgUpload">  
+          </div>  
+         </div>  
+       </li>  
+       <script>  
+           $("#imgUpload").change(function(e) {  
+          for (var i = 0; i < e.target.files.length; i++) {  
+            var file = e.target.files.item(i);            
+            var freader = new FileReader();  
+            freader.readAsDataURL(file);  
+            freader.onload = function(e) {  
+              var src = e.target.result;  
+              $("#uploadhead").attr("src",src);  
+            }  
+          }  
+        });  
+        </script>  
+        </body>  
+</html>   -->
+
+<!-- <!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+	</head>
+
+	<body>
+		<input type="file" name="">
+	</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style type="text/css">
+        table{border-collapse: collapse; }
+        th, td{border: 1px solid #4d4d4d;padding: 5px; }
+    </style>
+    <script type="text/javascript" language="javascript">
+        var idTmr;
+        function  getExplorer() {
+            var explorer = window.navigator.userAgent ;
+            //ie
+            if (explorer.indexOf("MSIE") >= 0) {
+                return 'ie';
+            }
+            //firefox
+            else if (explorer.indexOf("Firefox") >= 0) {
+                return 'Firefox';
+            }
+            //Chrome
+            else if(explorer.indexOf("Chrome") >= 0){
+                return 'Chrome';
+            }
+            //Opera
+            else if(explorer.indexOf("Opera") >= 0){
+                return 'Opera';
+            }
+            //Safari
+            else if(explorer.indexOf("Safari") >= 0){
+                return 'Safari';
+            }
+        }
+        function method1(tableid) {//整个表格拷贝到EXCEL中
+            if(getExplorer()=='ie') {
+                var curTbl = document.getElementById(tableid);
+                var oXL = new ActiveXObject("Excel.Application");
+
+                //创建AX对象excel
+                var oWB = oXL.Workbooks.Add();
+                //获取workbook对象
+                var xlsheet = oWB.Worksheets(1);
+                //激活当前sheet
+                var sel = document.body.createTextRange();
+                sel.moveToElementText(curTbl);
+                //把表格中的内容移到TextRange中
+                sel.select;
+                //全选TextRange中内容
+                sel.execCommand("Copy");
+                //复制TextRange中内容
+                xlsheet.Paste();
+                //粘贴到活动的EXCEL中
+                oXL.Visible = true;
+                //设置excel可见属性
+
+                try {
+                    var fname = oXL.Application.GetSaveAsFilename("Excel.xls", "Excel Spreadsheets (*.xls), *.xls");
+                } catch (e) {
+                    print("Nested catch caught " + e);
+                } finally {
+                    oWB.SaveAs(fname);
+
+                    oWB.Close();
+                    //xls.visible = false;
+                    oXL.Quit();
+                    oXL = null;
+                    //结束excel进程，退出完成
+                    //window.setInterval("Cleanup();",1);
+                    idTmr = window.setInterval("Cleanup();", 1);
+                }
+            } else {
+                tableToExcel('ta')
+            }
+        }
+        function Cleanup() {
+            window.clearInterval(idTmr);
+            CollectGarbage();
+        }
+
+        /*
+            template ： 定义文档的类型，相当于html页面中顶部的<!DOCTYPE> 声明。（个人理解，不确定）
+            encodeURIComponent:解码
+            unescape() 函数：对通过 escape() 编码的字符串进行解码。
+            window.btoa(window.encodeURIComponent(str)):支持汉字进行解码。
+            \w ：匹配包括下划线的任何单词字符。等价于’[A-Za-z0-9_]’
+            replace()方法：用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。
+            {(\w+)}：匹配所有 {1个或更多字符} 形式的字符串；此处匹配输出内容是 “worksheet”
+            正则中的() ：是为了提取匹配的字符串。表达式中有几个()就有几个相应的匹配字符串。
+            讲解(/{(\w+)}/g, function(m, p) { return c[p]; } ：
+                /{(\w+)}/g 匹配出所有形式为“{worksheet}”的字符串；
+                function参数：  m  正则所匹配到的内容，即“worksheet”；
+                                p  正则表达式中分组的内容,即“(\w+)”分组中匹配到的内容，为“worksheet”；
+                c ：为object，见下图3
+                c[p] : 为“worksheet”
+
+        */
+        var tableToExcel = (function() {
+            var uri = 'data:application/vnd.ms-excel;base64,',
+            template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>{table}</table></body></html>',
+            base64 = function(s) {
+                return window.btoa(unescape(encodeURIComponent(s)))
+            },
+            // 下面这段函数作用是：将template中的变量替换为页面内容ctx获取到的值
+            format = function(s, c) {
+                    return s.replace(/{(\w+)}/g,
+                                    function(m, p) {
+                                        return c[p];
+                                    }
+                    )
+            };
+            return function(table, name) {
+                if (!table.nodeType) {
+                    table = document.getElementById(table)
+                }
+                // 获取表单的名字和表单查询的内容
+                var ctx = {worksheet: name || 'Worksheet', table: table.innerHTML};
+                // format()函数：通过格式操作使任意类型的数据转换成一个字符串
+                // base64()：进行编码
+                window.location.href = uri + base64(format(template, ctx))
+            }
+        })()
+    </script>
+
+</head>
+<body>
+    <table id="ta">
+        <tr>
+            <th>零</th>
+            <th>一</th>
+            <th>二</th>
+            <th>三</th>
+            <th>四</th>
+        </tr>
+        <tr>
+            <td>万籁寂无声</td>
+            <td>衾铁棱棱近五更</td>
+            <td>香断灯昏吟未稳</td>
+            <td>凄清</td>
+            <td>只有霜华伴月明</td>
+        </tr>
+        <tr>
+            <td>应是夜寒凝</td>
+            <td>恼得梅花睡不成</td>
+            <td>我念梅花花念我</td>
+            <td>关情</td>
+            <td>起看清冰满玉瓶</td>
+        </tr>
+    </table>
+    <br/>
+    <input type="button" value="导出EXCEL" onclick="method1('ta')" />
+</body>
+</html>

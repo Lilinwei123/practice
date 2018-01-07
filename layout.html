@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript">
+		
+	</script>
+</head>
+
+<body>
+	<div class="rwd-header">Header</div>
+
+	<div class="rwd-content">
+	  <div class="rwd-content-left">Left</div>
+	  <div class="rwd-content-body">
+	    <div class="rwd-content-bodyTop">Top Content</div>
+	    <div class="rwd-content-bodyBottom">Bottom Content</div>
+	  </div>
+	  <div class="rwd-content-right">Right</div>
+	</div>
+
+	<div class="rwd-footer">Footer</div>
+
+	<style type="text/css">
+	.rwd-content-left,
+	.rwd-content-body,
+	.rwd-content-right {
+	  float: left;
+	}
+	.rwd-content::after {
+	  content: "";
+	  clear: both;
+	  display: block;
+	}
+	.rwd-content-left {
+	  width: 20%;
+	  height: 200px;
+	  background-color: red;
+	}
+
+	.rwd-content-body {
+	  width: 60%;
+	  background-color: purple;
+	}
+
+	.rwd-content-right {
+	  height: 300px;
+	  width: 20%;
+	  background-color: pink;
+	}
+	</style>
+</body>
+</html>

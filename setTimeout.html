@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript">
+	let obj = {
+		say: function () {
+			setTimeout (function () {
+				console.log(`setTimeout:${this}`);
+			}, 0);
+		},
+		hello: function () {
+			console.log(`hello:${this}`);
+		}
+	}
+
+	obj.say();
+	obj.hello();
+	</script>
+</head>
+
+<body>
+
+</body>
+</html>

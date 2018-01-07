@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<!-- map基础用法 -->
+	<!-- <script type="text/javascript">
+		let numbers = [4, 9, 16, 25];
+		function myFunction() {
+			x = document.getElementById('demo');
+			x.innerHTML = numbers.map(Math.sqrt);
+		}
+	</script> -->
+	<!-- map基础用法 -->
+</head>
+
+<body>
+	<!-- <p>点击按钮获取数组元素的平方根。</p>
+	<button onclick="myFunction()">点我</button>
+	<p id="demo"></p> -->
+
+	<!-- map基础用法 -->
+	<p>点击按钮将数组中的每个元素乘于输入框指定的值，并返回新数组。</p>
+	<p>最小年龄: <input type="number" id="multiplyWith" value="10"></p>
+	<button onclick="myFunction()">点我</button>
+	<p>新数组: <span id="demo"></span></p>
+
+	<script>
+	var numbers = [65, 44, 12, 4];
+	function multiplyArrayElement(num) {
+	    return num * document.getElementById("multiplyWith").value;
+	}
+	function myFunction() {
+	    document.getElementById("demo").innerHTML = numbers.map(multiplyArrayElement);
+	}
+	</script>
+	<!-- map基础用法 -->
+</body>
+</html>
