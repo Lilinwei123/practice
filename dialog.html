@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript">
+		
+	</script>
+</head>
+
+<body>
+	<button id="open">Open Dialog</button>  
+	<button id="close">Close Dialog</button>
+	<div>
+		<main>main</main>
+	</div>
+	<dialog id="dialog">  
+	  <h2>Dialog Title</h2>
+	  <p>Dialog content and other stuff will go here</p>
+	</dialog>
+
+	<script>  
+	const dialog = document.getElementById("dialog");
+	document.getElementById("open").addEventListener("click", () => {  
+	  dialog.show();
+	});
+	document.getElementById("close").addEventListener("click", () => {  
+	  dialog.close();
+	});
+</script>
+</body>
+</html>
