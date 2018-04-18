@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript">
+		
+	</script>
+</head>
+
+<body style="background-color:white;" scroll="no">
+	<a id="a1" href="javascript:;" onclick="console.log(this);">a1</a><br>
+	<a id="a2" href="javascript:;">a2</a><br>
+	<a id="a3" href="javascript:;" onclick="dosome()">a3</a>
+</body>
+<script>
+	document.getElementById("a2").addEventListener("click",function(e){
+		console.log(this);
+	},false);
+
+	function dosome(){
+		console.log(this);
+	}
+</script>
+</html>
