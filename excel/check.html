@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>hbjhb</title>
+        <script src="./small.js"></script>
+        <script src="./big.js"></script>
+    </head>
+    <body>
+        <script>
+          
+          let big = window.big;
+          let small = window.small;
+          let arr0 = new Array();
+
+          for (let i = 0; i < big.length; i++) {
+            for (let j = 0; j < small.length; j++) {
+              if (big[i].__EMPTY_2 == small[j]['身份证号码']) {
+                small[j].flag = 1;
+              }
+            }
+          }
+
+          console.log(JSON.stringify(small));
+        </script>
+    </body>
+</html> 

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  
+	<title>test</title>
+	<script type="text/javascript">
+	window.SM = {
+	  "data": {
+	    "sax": {
+	      "wap_class": "j_sax",
+	      "native_class": "j_native"
+	    }
+	  }
+	}
+	</script>
+	<script>
+    function rem() {
+      var t = 100,
+        o = 750,
+        e = document.documentElement.clientWidth || window.innerWidth,
+        n = Math.max(Math.min(e, 480), 320),
+        h = 50;
+      320 >= n && (h = Math.floor(n / o * t * .99)), n > 320 && 362 >= n && (h = Math.floor(n / o * t * 1)), n > 362 &&
+        375 >= n && (h = Math.floor(n / o * t * 1)), n > 375 && (h = Math.floor(n / o * t * .97)), document.querySelector(
+          "html").style.fontSize = h + "px"
+    };
+    rem();
+    window.onresize = function () {
+      rem();
+    }
+  	</script>
+
+	<link rel="stylesheet" href="http://mjs.sinaimg.cn/wap/project/channelv4/1.2.21/subchannel/subchannel.min.css">
+	<link rel="stylesheet" type="text/css" href="http:/mjs.sinaimg.cn/umd/wap_ads/1.1.78/style.min.css">
+	
+</head>
+
+<body>
+	<div id="j_relevent_reading">
+
+	</div>
+</body>
+
+
+
+<script type="text/javascript" src="http:/mjs.sinaimg.cn/umd/wap_ads/1.1.75/index.min.js"></script>
+<script type="text/javascript">
+
+	let saxAds = [
+	{
+ "adtype": "02",
+ "pdps": "pdps123",
+ "author": "",
+ "authoruid": "0",
+ "categoryid": "1",
+ "channelid": "0",
+ "columnid": "0",
+ "comment_reply": "0",
+ "comment_show": "0",
+ "comment_total": "0",
+ "commentid": "",
+ "ctime": "",
+ "docid": "",
+ "ext_0": "0",
+ "ext_1": "0",
+ "ext_2": "0",
+ "ext_3": "0",
+ "ext_4": "0",
+ "images": null,
+ "img": {
+  "u": "http://s3.pfp.sina.net/ea/ad/4/1/93b22ecd54a57b9d7dc665335f09a6d0.jpg",
+  "w": "0",
+  "h": "0",
+  "desc": null,
+  "ext": null,
+  "link": null
+ },
+ "img_pause": null,
+ "img_play": null,
+ "intro": null,
+ "ipad_vid": "",
+ "keywords": "",
+ "level": "1",
+ "lids": "",
+ "mediaid": "0",
+ "oid": "0",
+ "productid": "0",
+ "stitle": "",
+ "subjectid": "0",
+ "summary": null,
+ "templateid": "66",
+ "title": "游戏试玩游戏试玩游戏试玩游戏试玩",
+ "url": "http://wa.aa",
+ "vid": "",
+ "wapurl": "",
+ "weiboname": "",
+ "weibourl": "",
+ "zurl": "",
+ "tel": "",
+ "scheme": "",
+ "download": "",
+ "deeplink": "",
+ "namonitor": {
+  "weibourl": "",
+  "download": "",
+  "scheme": "",
+  "comment": "",
+  "tel": "",
+  "sharing": "",
+  "zurl": ""
+ },
+ "pvmonitor": [],
+ "pos": '2',
+ "appid": null,
+ "adSource": null,
+ "logo": null,
+ "trialGame": {
+  "package_id": 100019,
+  "package_name": "com.tencent.tmgp.pubgmhd"
+ }
+}];
+
+	let adsReadInfo = {
+	  'cardId': '#j_relevent_reading',
+	  'initList': saxAds,
+	  'saxType': 'tianyi'
+	  // ,
+	  // 'isUp': 0
+	};
+
+	sinaSax.saxInit(adsReadInfo);  
+</script>
+</html>

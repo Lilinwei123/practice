@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>test</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+
+</body>
+<script type="text/javascript">
+  //发布者
+  function Public() {
+    this.handlers = {};
+  }
+  
+  Public.prototype = {
+    constructor: Public,
+    on: function (eventType, handler) { // 订阅事件
+      var self = this;
+      if (!(eventType in self.handlers)) {
+        self.handlers[eventType] = [];
+      }
+      self.handlers[eventType].push(handler);
+      return self;
+    },
+    emit: function (eventType) {    // 触发事件(发布事件)
+      var self = this;
+      var handlerArgs = Array.prototype.slice.call(arguments, 1);
+      var length = self.handlers[eventType].length
+      for (var i = 0; i < length; i++) {
+        self.handlers[eventType][i].apply(self, handlerArgs);
+      }
+      return self;
+    },
+    off: function (eventType, handler) {    // 删除订阅事件
+      var currentEvent = this.handlers[eventType];
+      var len = 0;
+      if (currentEvent) {
+        len = currentEvent.length;
+        for (var i = len - 1; i >= 0; i--) {
+          if (currentEvent[i] === handler) {
+            currentEvent.splice(i, 1);
+          }
+        }
+      }
+      return self;
+    }
+  };
+  //订阅者
+  function ObserverB(data) {
+    console.log('b subscribe:' + data)
+  }
+  function ObserverC(data) {
+    console.log('c subscribe:' + data)
+  }
+  var publisher = new Public();
+
+  //订阅事件
+  publisher.on('a', ObserverB);
+  publisher.on('b', ObserverB);
+  publisher.on('a', ObserverC);
+
+  //触发事件
+  publisher.emit('a', 'a第1次时间发布');
+  publisher.emit('b', 'b第1次时间发布');
+  publisher.emit('a', 'a第2次时间发布');　
+</script>
+
+</html>
