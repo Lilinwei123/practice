@@ -1,34 +1,30 @@
-// func(void) -> Promise
-// retry(func, count) -> Promise
-
-function yibu() {
-  return new Promise ((resolve, reject) => {
-    reject('err');
-  })
+async function yibu() {
+  if (1) {
+    return Promise.resolve('hello world')
+  } else {
+    return Promise.reject('err');
+  }
 }
 
-function retry (func, count) {
-  let flag = 0;
-  
-  if (!flag) {
-    i = 0;
-    flag = 1;
-  }
-
-  if (i < count) {
-    func().then((data) => {
-      
-    }).catch((err) => {
-      console.log(err)
-      retry(func, count);
-      i++;
-    })
-  }
-  
+async function retry (func, count) {
+    try{
+      let res = await func();
+      return res;
+    } catch(err) {
+      console.log(err + count);
+      if (count > 1) {
+        retry(func, --count);
+      }
+      return err;
+    }
 }
 
-retry(yibu, 5)
+async function render () {
+  const result = await retry(yibu, 5);
+  console.log('result---' + result);
+}
 
+render();
 
 
 

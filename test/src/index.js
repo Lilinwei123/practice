@@ -37,34 +37,7 @@
 // }
 // console.log(processString('AbC'));
 
-// 数组扁平化
-// const arr = [1, [1,2], [1,2,3]];
-// let arrNew = [];
 
-// function flatArr (arr) { 
-//   arr.forEach((item) => {
-//     if (Array.isArray(item)) {
-//       flatArr(item);
-//     } else {
-//       arrNew.push(item);
-//     }
-//   });
-// }
-
-// flatArr(arr);
-// console.log(arrNew);
-
-// es2019
-// arr.flat();
-
-// 数组的扩展实现
-// let arr = [1, [1,2], [1,2,3,[4,4,4]]];
-
-// while(arr.some(Array.isArray)) {
-//   arr = [].concat(...arr)
-//   console.log('while arr----', arr)
-// }
-// console.log(arr)
 
 // 实现const
 // function _const (key, value) {
@@ -79,29 +52,187 @@
 
 
 
-// 原型继承
-function Parent() {
-  this.name = ['alin'];
-}
+// // 原型继承
+// function Parent() {
+//   this.name = ['alin'];
+// }
 
-Parent.prototype.getName = function () {
-  console.log('parent---' + this.name)
-}
+// Parent.prototype.getName = function () {
+//   console.log('parent---' + this.name)
+// }
 
-function Child () {
-  console.log('child---' + this.name);
-}
+// function Child () {
+//   console.log('child---' + this.name);
+// }
 
-Child.prototype = new Parent();
-Child.prototype.constructor = Child;
+// Child.prototype = new Parent();
+// Child.prototype.constructor = Child;
 
-var child = new Child();
-// console.log('lll---', child.name);
-// child.getName();
+// var child = new Child();
+// // console.log('lll---', child.name);
+// // child.getName();
 
-var child1 = new Child();
-child1.name[0] = 'ankjun';
-console.log(child.name);
-console.log(child1.name);
+// var child1 = new Child();
+// child1.name[0] = 'ankjun';
+// console.log(child.name);
+// console.log(child1.name);
+
+// ’AbC' 变成 'aBc'
+// let oldStr = 'AbC';
+// let arr = oldStr.split('');
+// console.log(arr)
+// let newArr = arr.map( t => t === t.toUpperCase() ? t.toLowerCase() : t.toUpperCase()) 
+
+// console.log(newArr.join(''));
+
+// // 'ghjghjhjkgftydezoiuon,jghvcfgc'中找出'ydezoiu'
+// let str = 'ghjghjhjkgftydezoiuon,jghvcfgc';
+// let searchStr = 'ydezoiu';
+
+// console.log(str.indexOf(searchStr))
+// ----------------------------------------------------
+
+
+// 1-10000对称数
+// let a = [...Array.from({length:10000}).keys()].filter((t) => {
+//   return  t === Number.parseInt(t.toString().split('').reverse().join(""), 10);
+// })
+// console.log(a)
+// ----------------------------------------------------
+
+
+// 手写call
+// function foo() {
+//   console.log(this.name)
+// }
+
+// // 测试
+// const obj = {
+//   name: 'alin'
+// }
+
+// foo.call(obj)
+// Function.prototype.myCall = function (thisArgs, ...args) {
+//   thisArgs = thisArgs || window;
+//   const fn = Symbol('fn');
+
+//   thisArgs[fn] = this;
+//   const result = thisArgs[fn](...args);
+//   delete thisArgs[fn];
+//   return result;
+// }
+// ----------------------------------------------------
+
+// var longestCommonPrefix = function(strs) {
+//   let isSame = true;
+//   let i = 0;
+  
+//   if (Array.isArray(strs) && typeof strs[0] == 'string') {
+//     if (strs.length > 0) {
+//       while (i <= strs[0].split('').length && isSame) {
+      
+//         isSame = strs.every((item) => {
+//           return strs[0].substring(i, i+1) == item.substring(i, i+1);
+//         });
+        
+//         i++;
+//       }
+      
+//       return strs[0].substring(0, i-1) || '';
+//     } else {
+//       return strs[0];
+//     }
+//   }
+  
+//   return '';
+// };
+// console.log('---'+longestCommonPrefix(['f']))
+// ----------------------------------------------------
+
+
+// let arr = [];
+
+// function removeRepeat(arr) {
+//   if (arr.length === 0) return [];
+//   let i = 1;
+//   let pivot = arr[0];
+//   while (i < arr.length) {
+//     if (pivot === arr[i]) {
+//       arr.splice(i, 1);
+//     } else {
+//       pivot = arr[i];
+//       i++;
+//     }
+//   }
+
+//   return arr.length;
+// }
+// removeRepeat(arr);
+// console.log(arr)
+
+
+// ----------------------------------------------------
+
+// js事件机制
+// console.log('global');
+
+// setTimeout(function() {
+//     console.log('setTimeout1');
+//     new Promise(function(resolve) {
+//         console.log('setTimeout1_promise');
+//         resolve();
+//     }).then(function() {
+//         console.log('setTimeout1_promiseThen')
+//     })
+//     process.nextTick(function() {
+//         console.log('setTimeout1_nextTick');
+//     })
+// },0)
+
+// new Promise(function(resolve) {
+//     console.log('promise1');
+//     resolve();
+// }).then(function() {
+//     console.log('promiseThen1')
+// })
+
+// setImmediate(function() {
+//     console.log('setImmediate');
+// })
+
+// process.nextTick(function() {
+//     console.log('nextTick');
+// })
+
+// new Promise(function(resolve) {
+//     console.log('promise2');
+//     resolve();
+// }).then(function() {
+//     console.log('promiseThen2')
+// })
+
+// setTimeout(function() {
+//     console.log('setTimeout2');
+// },0)
+
+// ----------------------------------------------------
+
+// 给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。
+var searchInsert = function(nums, target) {
+    let index = nums.indexOf(target);
+    let i = 0;
+    if (index !== -1) {
+        console.log(index)
+        return index;
+    } else {
+        while(target > nums[i]) {
+            i++;
+        }
+        console.log(i)
+        return i;
+    }
+};
+
+searchInsert([1,3,5,6], 0)
 
 
