@@ -168,17 +168,19 @@ let a = [6, 1, 2, 7, 9, 3, 4, 5, 10, 8];
 function quickSort (arr, left, right) {
   if (left >= right) return;
   let qivot = arr[left];
-  let i = left+1;
+  let i = left;
   let j = right;
 
   while (i < j) {
     while (arr[j] > qivot && i<j) j--;
-    while (arr[i] < qivot && i<j) i++;
-    
+    while (arr[i] <= qivot && i<j) i++;
+  
     if (i<j)
     swap(arr, i, j);
   }
-  swap(arr, left, i);
+
+  if (arr[left] > arr[i])
+      swap(arr, left, i);
 
   quickSort(arr, left, i-1);
   quickSort(arr, i+1, right);

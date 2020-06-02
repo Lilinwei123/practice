@@ -218,21 +218,214 @@
 // ----------------------------------------------------
 
 // 给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。
-var searchInsert = function(nums, target) {
-    let index = nums.indexOf(target);
+// var searchInsert = function(nums, target) {
+//     let index = nums.indexOf(target);
+//     let i = 0;
+//     if (index !== -1) {
+//         console.log(index)
+//         return index;
+//     } else {
+//         while(target > nums[i]) {
+//             i++;
+//         }
+//         console.log(i)
+//         return i;
+//     }
+// };
+
+// searchInsert([1,3,5,6], 0)
+
+
+
+// function swap (arr, i, j) {
+//     let temp = arr[i];
+//     arr[i] = arr[j];
+//     arr[j] = temp;
+// }
+
+// function quickSort(arr, left, right){
+//     if (left >= right) return;
+//     let qivot = arr[left];
+//     let i = left+1;
+//     let j = right;
+
+//     while (i < j) {
+//         while (arr[j] > qivot && i < j) j--;
+//         while (arr[i] < qivot && i < j) i++;
+// console.log(arr)
+//         if (i < j) {
+//             swap(arr, i, j);
+//         }
+//     }
+//      swap(arr, left, i);
+
+//      quickSort(arr, left, i-1);
+//      quickSort(arr, i+1, right);
+// }
+// let arr = [1,3,5,5,5,2];
+// // console.log(arr.length-1)
+// quickSort(arr, 0, arr.length-1)
+// console.log(arr)
+
+
+// function swap(arr, i, j) {
+//     var temp = arr[i];
+//     arr[i] = arr[j];
+//     arr[j] = temp;
+//   }
+  
+//   let a = [1,3,5,5,5,2];
+// //   let a = [6, 1, 2, 7, 9, 3, 4, 5, 10, 8];
+  
+//   function quickSort (arr, left, right) {
+//     if (left >= right) return;
+//     let qivot = arr[left];
+//     let i = left;
+//     let j = right;
+  
+//     while (i < j) {
+//       while (arr[j] > qivot && i<j) j--;
+//       while (arr[i] <= qivot && i<j) i++;
+    
+//       if (i<j)
+//       swap(arr, i, j);
+//     }
+
+//     if (arr[left] > arr[i])
+//         swap(arr, left, i);
+  
+//     quickSort(arr, left, i-1);
+//     quickSort(arr, i+1, right);
+//   }
+//   console.log(a)
+//   quickSort(a, 0, a.length-1);
+//   console.log(a)
+  
+// let arr = [1,3,5,5,5,2];
+// // let sameArr = Array.from(arr);
+
+// let sameArr = arr.map((value, key) => {
+//     let obj = {};
+//     obj.index = key;
+//     obj.value = value;
+
+//     return obj;
+// })
+
+// sameArr.sort((a, b) => {
+//     return a.value-b.value;
+// });
+
+// sameArr.splice(4, sameArr.length-4);
+// let newArr = sameArr.map((value)=>{
+//     return arr[value.index];
+// })
+
+// console.log(newArr)
+
+// console.log(sameArr)
+// console.log(arr)
+
+
+
+// var lengthOfLastWord = function(s) {
+//     let arr = s.split(' ');
+// // console.log(arr[0].length)
+//     let i = arr.length-1;
+//     while (arr[i].length === 0 && i > 0) {
+//         i--;
+//     }
+//     return arr[i].length ;
+// };
+
+// console.log(lengthOfLastWord(''));
+
+
+// var removeElement = function(nums, val) {
+//     while (nums.indexOf(val) !== -1) {
+//         nums.splice(nums.indexOf(val), 1);
+//     }
+
+//     return nums.length;
+// };
+// console.log(removeElement([], 2))
+
+// let itemArr = [];
+// var isHappy = function(n) {
+//     let arr = n.toString().split('');
+//     let sum = 0;
+//     arr.forEach((value) => {
+//         sum += value*value;
+//     });
+    
+// console.log(sum)
+//     if (sum === 1) {
+//         return 1;
+//     } else {
+//         if (itemArr.indexOf(sum) !== -1) {
+//             return 0;
+//         } else {
+//             itemArr.push(sum);
+//             isHappy(sum);
+//         }
+//     }
+// };
+
+// console.log(isHappy(19));
+
+
+
+// let SourceObject = {
+//     a:1,
+//     b: {
+//         c: 2
+//     }
+// }
+
+// let copiedObject = SourceObject;
+// copiedObject.a = 3;
+// copiedObject.b.c = 4;
+
+// console.log(SourceObject);
+
+// 观察者模式
+// class Observers {
+//     constructor (fn) {
+//         this.update = fn;
+//     }
+// }
+// class Subjects {
+//     constructor () {
+//         this.observers = [];
+//     }
+//     addObservers (observer) {
+//         this.observers.push(observer);
+//     }
+//     notify () {
+//         this.observers.forEach(observe => {
+//             observe.update();
+//         })
+//     }
+// }
+
+// const subject = new Subjects();
+// const update = () => {console.log('观察到变化了，更新一下')};
+// const observer1 = new Observers(update);
+// const observer2 = new Observers(update);
+// subject.addObservers(observer1);
+// subject.addObservers(observer2);
+// subject.notify();
+
+let a = '红蓝蓝黄红黄蓝红红黄红';
+function sortColor (a) {
+    a = a.split('');
+    console.log(a);
     let i = 0;
-    if (index !== -1) {
-        console.log(index)
-        return index;
-    } else {
-        while(target > nums[i]) {
-            i++;
-        }
-        console.log(i)
-        return i;
+    let newArr = [];
+    while (i !== -1) {
+        i = a.indexOf('红');
+        newArr.push(...a.splice(i, 1));
+        console.log(newArr)
     }
-};
-
-searchInsert([1,3,5,6], 0)
-
-
+}
+sortColor(a)
