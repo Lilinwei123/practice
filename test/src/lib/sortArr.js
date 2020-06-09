@@ -163,7 +163,7 @@ function swap(arr, i, j) {
   arr[j] = temp;
 }
 
-let a = [6, 1, 2, 7, 9, 3, 4, 5, 10, 8];
+let a = [6, 1, 2, 2, 7, 9, 3, 9, 4, 5, 10, 8];
 
 function quickSort (arr, left, right) {
   if (left >= right) return;
@@ -180,7 +180,7 @@ function quickSort (arr, left, right) {
   }
 
   if (arr[left] > arr[i])
-      swap(arr, left, i);
+    swap(arr, left, i);
 
   quickSort(arr, left, i-1);
   quickSort(arr, i+1, right);
