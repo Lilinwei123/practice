@@ -1,4 +1,4 @@
-// import './lib/bibao.js'
+// import './lib/searchParent.js'
 
 // console.log('success!');
 // console.warn('error' + new Date().getTime());
@@ -477,8 +477,203 @@
 // obj.cars.bw = '44w';
 // console.log(obj2)
 
+// let a = [1, 2, 3, 4];
+// /**
+//  * @param {number[]} nums
+//  * @return {number[][]}
+//  */
+// var permute = function(nums) {
+
+//   if(nums.length === 0) {
+//       return [];
+//   }
+//   let result = [];
+
+//   function print(left, current) {
+//       if (left.length === 0) {
+//           result.push(current);
+//       }
+//       const len = left.length;
+//       let i = 0;
+//       for (i = 0; i < len; i++) {
+//           const left_copy = left.slice();
+//           const cur_copy = current.slice();
+
+//           const item = left_copy.splice(i, 1);
+//           cur_copy.push(item[0]);
+
+//           print(left_copy, cur_copy);
+//       }
+//   }
+
+//   print(nums, [])
+
+//   return result;
+// };
+
+// let a = [1, [2, 3, [4, 5], 6], 7];
+// let newArr = [];
+
+// function flatArr(arr) {
+//   arr.forEach(ele => {
+//     if (ele instanceof Array) {
+//       flatArr(ele);
+//     } else {
+//       newArr.push(ele);
+//     }
+//   });
+// }
+
+// flatArr(a);
+// console.log(newArr)
 
 
+// let obj = {
+//   name:"xm",
+//   age:30,
+//   cars:{
+//       bmw:"30w",
+//       bench:"60w"
+//   }
+// }
+
+// function deepClone(obj) {
+//   let newObj = {}
+//   if (obj instanceof Object) {
+//     for (let key in obj) {
+//       newObj[key] = deepClone(obj[key]) 
+//     }
+//   } else {
+//     return obj;
+//   }
+
+//   return newObj;
+// }
+
+// console.log(deepClone(obj))
 
 
+// 1                  0       
+// 1 1                1
+// 1 2 1              2
+// 1 3 3 1            3
+// 1 4 6 4 1          4
+// 1 5 10 10 5 1      5
+// ........
+// function combination(n) {
+//   let rowArr = [];
+//   for (let i = 0; i < n; i++) {
+//     rowArr[i] = new Array();
+//     rowArr[i][0] = 1;
+//     rowArr[i][i] = 1;
+    
+//     for (let j = 1; j < i && i > 1; j++) {
+//       rowArr[i][j] = rowArr[i-1][j-1] + rowArr[i-1][j];
+//     }
+//   }
 
+//   console.log(rowArr);
+// }
+// combination(6);
+
+
+// 构造函数继承
+// function Parent () {
+//   this.name = 'parent';
+// }
+
+// Parent.prototype.getName = function () {
+//   return this.name;
+// }
+
+// function Child () {}
+
+// Child.prototype = new Parent();
+// Child.prototype.constructor = Child;
+
+// var child1 = new Child();
+// var child2 = new Child();
+// child2.name[0] = 'child2';
+// console.log(child1.getName())
+
+
+// function Parent (name) {
+//   this.name = name;
+// }
+// Parent.prototype.getName = function () {
+//   return this.name;
+// }
+
+// function Child () {
+//   Parent.call(this, 'zhangsan')
+// }
+
+// Child.prototype = new Parent();
+// Child.prototype.constructor = Child;
+
+// var child1 = new Child();
+// console.log(child1.getName())
+
+// var p = new Promise(p1, p2, p3).then();
+
+// function myPromiseAll (p1, p2, p3) {}
+
+
+// let a = [1, 2, 3, 9, 3, 7, 8, 4, 9, 6];
+
+// function pairNum (a, target) {
+//   let len = a.length;
+//   let i = 0;
+//   let list = [];
+
+//   while (i < len) {
+//     let section = target - a[i];
+
+//     let otherIndex = a.indexOf(section);
+//     if (otherIndex !== -1) {
+//       let b = [a[i], a[otherIndex]];
+//       list.push(b);
+//       a.splice(i, 1);
+//       a.splice(otherIndex-1, 1);
+//     } else {
+//       i++;
+//       continue;
+//     }
+//   }
+
+//   return list;
+// }
+
+// console.log(pairNum(a, 10))
+
+function promiseAll (promises) {
+  return new Promise((resolve, reject) => {
+    if (!Array.isArray(promises)) {
+      reject('error promises')
+    }
+    let realLen = promises.length;
+    let resolveLen = 0;
+    let resolveArr = [];
+  
+    for (let i = 0; i < promises.length; i++) {
+      promises[i].then ((res) => {
+        resolveLen++;
+        resolveArr.push(res);
+        if (realLen === resolveLen) {
+          resolve(resolveArr)
+        }
+      }).catch((err) => {
+        reject(err);
+      })
+    }
+  })
+}
+
+var p1=Promise.resolve(1),
+p2=Promise.resolve(2),
+p3=Promise.resolve(3);
+promiseAll(p1).then(function(value){
+  console.log(value)
+}).catch((err) => {
+  console.log(err)
+})
